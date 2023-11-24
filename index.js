@@ -1,14 +1,13 @@
-// const connect = require("/src/connect")
-
-import {connect} from './src/connect'
-
-const  express = require("express");
-const  cors = require("cors");
+import express from "express";
+import cors from "cors";
+import {connect} from "./src/connect.js";
+import {indexRouter} from "./src/routers/index.js";
 
 const app = express();
 
 app.use(cors.call(null));
 app.use(express.json());
+app.use("/api", indexRouter)
 
 async function startup() {
     try {
